@@ -1,0 +1,38 @@
+name: todo-app-obd
+services:
+  mariadb:
+    image: mariadb:lts-ubi10
+    container_name: todo-app-obd-db
+    restart: unless-stopped
+
+    environment:
+      MARIADB_ROOT_PASSWORD_FILE: /run/secrets/mariadb_root_password
+      MARIADB_DATABASE: TodoApp
+
+    healthcheck:     
+      test:       
+        [
+          "CMD-SHELL",
+          "mariadb-admin ping -h 127.0.0.1 -u root -p\"$$(cat /run/secrets/mariadb_root_password)\" --silent"
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+    ports:
+      - "3306:3306"
+
+    volumes:
+      - mariadb_data:/var/lib/mysql
+      - ./database:/docker-entrypoint-initdb.d:ro
+
+    secrets:
+      - mariadb_root_password
+
+volumes:
+  mariadb_data:
+
+secrets: 
+  mariadb_root_password:
+    file: ./secrets/mariadb_root_password

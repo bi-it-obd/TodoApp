@@ -1,0 +1,50 @@
+﻿@inherits LayoutComponentBase
+@using MudBlazor
+
+@* Required *@
+<MudThemeProvider Theme="AppTheme"/>
+<MudPopoverProvider />
+
+@* Needed for dialogs *@
+<MudDialogProvider />
+
+@* Needed for snackbars *@
+<MudSnackbarProvider />
+
+
+
+<div class="page">
+    <main>
+        @Body
+    </main>
+</div>
+
+<div id="blazor-error-ui" data-nosnippet>
+    An unhandled error has occurred.
+    <a href="." class="reload">Reload</a>
+    <span class="dismiss">🗙</span>
+</div>
+
+@code {
+    public readonly MudTheme AppTheme = new MudTheme()
+    {
+        PaletteDark = new PaletteDark()
+        {
+            Background = "#040d17",
+            Primary = "#14243c",
+            Secondary = "#081832",
+            TextPrimary = "#f3f3f3",
+            TextSecondary = "#a6acb5",
+        },
+        
+        // currently no light palette provided (is same as dark)
+        PaletteLight = new PaletteLight() 
+        {
+            Background = "#040d17",
+            Primary = "#14243c",
+            Secondary = "#081832",
+            TextPrimary = "#f3f3f3",
+            TextSecondary = "#a6acb5",
+        },
+    };
+}

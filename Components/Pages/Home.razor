@@ -1,0 +1,12 @@
+﻿@page "/"
+@using MudBlazor
+@rendermode InteractiveServer
+
+<PageTitle>Todo</PageTitle>
+<MudPaper Class="h-100 w-100" Style="background-color: var(--mud-palette-background)">
+    <MudStack Class="h-100 w-100 pa-3 align-center" Row="true" Spacing="3">
+        <QuickActions/>
+        <TaskExplorer/>
+        <TaskEditor/>
+    </MudStack>
+</MudPaper>

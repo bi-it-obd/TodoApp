@@ -1,0 +1,39 @@
+@using MudBlazor
+@using Models
+@rendermode InteractiveServer
+
+<MudPaper id="task-actions" Class="w-100">
+    <MudAutocomplete id="search-field"
+        Class="rounded-pill"
+        T=TodoTask
+        Placeholder="Search"
+        Variant="Variant.Filled"
+        Adornment="Adornment.End"
+        AdornmentIcon="@Icons.Material.Outlined.Search"
+        AdornmentColor="Color.Inherit"
+        ResetValueOnEmptyText="true"
+        />
+</MudPaper>
+
+<style>
+    #task-actions {
+        height: 5%;
+        background-color: var(--mud-palette-background);
+        padding: 0 2dvw 0 2dvw;
+    }
+
+    #search-field {
+        width: 30%;
+        background-color: var(--mud-palette-primary);
+        padding: 5px;
+        border-radius: 10dvh;
+    }
+    .mud-input::before,
+    .mud-input::after {
+        display: none;
+    }
+
+    .mud-input:has(#search-field) > .mud-intput-adornment-end {
+        background-color: red;
+    }
+</style>

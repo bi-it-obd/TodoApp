@@ -1,0 +1,45 @@
+@using MudBlazor
+
+<MudPaper id="quick-actions" Class="h-100 d-inline-flex justify-center"
+    Elevation="2">
+    <MudStack Row="false" Spacing="2">
+        <MudStack AlignItems="AlignItems.Center" Spacing="1">
+            <MudIconButton
+                Icon="material-symbols-outlined/calendar_today"
+                Class="quick-actions-button"/>
+            <MudText Typo="Typo.caption"
+                Class="quick-actions-text">Soon</MudText>
+        </MudStack>
+        <MudStack AlignItems="AlignItems.Center" Spacing="1">
+            <MudIconButton
+                Icon="material-symbols-outlined/assignment_late"
+                Class="quick-actions-button"/>
+            <MudText Typo="Typo.caption"
+                Class="quick-actions-text">Urgent</MudText>
+        </MudStack>
+            <MudIconButton
+                Icon="material-symbols-outlined/settings"
+                Class="quick-actions-button"
+                Style="position: absolute; bottom: 18px;"/>
+    </MudStack>
+</MudPaper>
+
+<style>
+    #quick-actions {
+        border-radius: 2dvw;
+        border-radius: 2dvw;
+        background-color: var(--mud-palette-secondary);
+        overflow: hidden;
+    }
+
+    .quick-actions-button {
+        color: var(--mud-palette-text-secondary);
+    }
+
+    .quick-actions-text {
+        color: var(--mud-palette-text-secondary);
+        user-select: none;
+        font-size: 0.75em;
+        margin-top: -12px; /*offset default button padding*/
+    }
+</style>
